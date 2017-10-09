@@ -1,4 +1,5 @@
 # README
+A repository for our second project on the engineering course at sparta global. Built in Ruby on rails.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
