@@ -9,8 +9,11 @@
   </head>
 
   <body>
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  	<% if current_user.admin %>
+    <p>You are logged in as an Admin</p>
+    <% else %>
+    <p>You are logged in</p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
