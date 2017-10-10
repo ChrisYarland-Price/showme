@@ -3,7 +3,7 @@
     <div class="row">
       <% @spartans.each do |user| %>
         <div class = "card col-md-4 col-sm-6">
-          <h2><a href="/spartans/<%= user.id %>"><%= user.name %></a></h2>
+          <h2><a href="spartans/<%= user.id %>"><%= user.name %></a></h2>
           <% if user.image %>
             <img src="<%= user.image %>" alt="This user does not have an profile picture."></img>
           <% else %>
@@ -13,7 +13,6 @@
           <p><%= user.bio %></p>
           <h4>Email: </h4>
           <p><%= user.email %></p>
-          <td><%= link_to 'Show', '/u/user.id' %></td>
           <td><%= link_to 'Edit', '/spartans/edit/user' %></td>
           <td><%= link_to 'Destroy', '/spartans', method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </div>
