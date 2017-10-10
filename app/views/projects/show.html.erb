@@ -1,0 +1,28 @@
+
+<p>
+  <strong>Name:</strong>
+  <a href="<%= @project.url %>"><%= @project.name %></a>
+</p>
+
+<% if @project.image %>
+  <img src="<%= @project.image %>" alt="I'm Afraid that image is missing."></img>
+<% else %>
+  <p>There is no image for this project. Could you please add one.</p>
+<% end%>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @project.summary %>
+</p>
+
+<p>
+  <strong>Technologies:</strong>
+  <%= @project.technologies %>
+</p>
+
+<% if spartan_signed_in? %>
+    <% if current_spartan.admin %>
+		<%= link_to 'Edit', edit_project_path(@project) %> |
+	<% end %>
+<% end %>
+<%= link_to 'Back', projects_path %>
