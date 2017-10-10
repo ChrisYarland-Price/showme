@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   def home
     @projects = Project.all.where('published = true')
   end
+
   # GET /projects
   # GET /projects.json
   def index
