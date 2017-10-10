@@ -1,4 +1,4 @@
 class Project < ApplicationRecord
 
-  belongs_to :spartans
+  #belongs_to :spartans
 end
