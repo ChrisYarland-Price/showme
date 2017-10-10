@@ -1,0 +1,21 @@
+<h1>Users</h1>
+<% @spartans.each do |user| %>
+  <div class = "tiled">
+    <h4>Name: </h2><p><%= user.name %></p>
+    <% if user.image %>
+      <img src="<%= user.image %>" alt="This user does not have an profile picture."></img>
+    <% else %>
+
+    <% end%>
+    <h4>Bio: </h4>
+    <p><%= user.bio %></p>
+    <h4>Email: </h4>
+    <p><%= user.email %></p>
+    <td><%= link_to 'Show', '/u/user.id' %></td>
+    <td><%= link_to 'Edit', '/spartans/edit/user' %></td>
+    <td><%= link_to 'Destroy', '/spartans', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </div>
+        
+<% end %>
+
+<%= link_to 'New Spartan', new_spartan_registration_path %>
