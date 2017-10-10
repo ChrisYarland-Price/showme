@@ -1,5 +1,4 @@
 class Project < ApplicationRecord
-
-
-  #belongs_to :spartans
+  has_many :spartans_projects
+  has_many :spartans, through: :spartans_projects
 end

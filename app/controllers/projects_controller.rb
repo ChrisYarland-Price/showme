@@ -11,8 +11,18 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all()
-    @header = "All Projects"
+    if spartan_signed_in?
+      if current_spartan.admin
+        @projects = Project.all()
+        @header = "All Projects"
+      else
+        @projects = current_spartan.projects.all()
+        @header = "Your Projects"
+      end
+    else
+    redirect_to '/home'
+    end
+        
   end
 
   # GET /projects/1
