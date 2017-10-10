@@ -1,5 +1,6 @@
 class SpartansController < ApplicationController
 
+
   def index
     if current_spartan.admin == true
       @spartans = Spartan.all
@@ -11,6 +12,7 @@ class SpartansController < ApplicationController
   def show
     @spartan = Spartan.find(params[:id])
   end
+
 
   
   
