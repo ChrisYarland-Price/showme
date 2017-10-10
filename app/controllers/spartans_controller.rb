@@ -1,7 +1,11 @@
 class SpartansController < ApplicationController
 
   def index
-    @spartans = Spartan.all
+    if current_spartan.admin == true
+      @spartans = Spartan.all
+    else
+      redirect_to '/'
+    end
   end
 
   def show

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :spartans
   resources :projects
-  resources :spartans
+  resources :spartans, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  
   # get '/u', to: 'spartans#index'
