@@ -10,7 +10,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">[Sparta Logo]</a>
+      <a class="navbar-brand" href="#"><%= image_tag("sparta-logo.png", :alt => "sparta logo") %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,10 +34,10 @@
         </form>
         <div class="login">
           <% if spartan_signed_in? %>
-            <%= link_to('Logout', destroy_spartan_session_path, method: :delete) %>
+              <%= link_to('Logout', destroy_spartan_session_path, class: "btn btn-secondary", method: :delete) %>
           <% else %>
-            <%= link_to('Login', new_spartan_session_path)  %>  
-            <%= link_to('Sign Up', new_spartan_registration_path) %>
+              <%= link_to('Login', new_spartan_session_path, class: "btn btn-secondary")  %>
+              <%= link_to('Sign Up', new_spartan_registration_path, class: "btn btn-secondary") %>
           <% end %>
         </div>
       </div>
