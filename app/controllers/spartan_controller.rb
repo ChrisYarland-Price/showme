@@ -1,0 +1,7 @@
+class SpartanController < ApplicationController
+
+  
+
+  
+  
+end

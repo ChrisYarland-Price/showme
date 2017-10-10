@@ -1,0 +1,28 @@
+<% @projects.each do |project| %>
+    <div class = "tiled">
+      <h2>Name: </h2><a href="<%= project.url %>"><%= project.name %></a>
+      <% if project.image %>
+        <img src=""><%= project.image %></img>
+      <% else %>
+      <% end%>
+      <h4>Summary: </h4>
+      <p><%= project.summary %></p>
+      <h4>Technologies: </h4>
+      <p><%= project.technologies %></p>
+      <td><%= link_to 'Show', project %></td>
+
+      <% if spartan_signed_in? %>
+        <% if current_spartan.admin %>
+          <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% end %>
+       <% end %>
+    </div>
+        
+   
+
+<%= link_to 'New Project', new_project_path %>
+
+<% end %>
+
+
