@@ -1,11 +1,10 @@
-
 <p>
   <strong>Name:</strong>
   <a href="<%= @project.url %>"><%= @project.name %></a>
 </p>
 
 <% if @project.image %>
-  <img src="<%= @project.image %>" alt="I'm Afraid that image is missing."></img>
+  <img src="<%= @project.image %>" alt="I'm afraid that image is missing.">
 <% else %>
   <p>There is no image for this project. Could you please add one.</p>
 <% end%>
