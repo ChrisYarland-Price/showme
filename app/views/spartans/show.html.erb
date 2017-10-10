@@ -1,0 +1,22 @@
+<p>
+  <strong>Name:</strong>
+  <h2><%= @spartan.name %></h2>
+</p>
+
+<% if @spartan.image %>
+  <img src="<%= @spartan.image %>" alt="Profile image of this spartan."></img>
+<% else %>
+  <p>There is no image for this spartan. Could you please add one.</p>
+<% end%>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @spartan.bio %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @spartan.email %>
+</p>
+
+<%= link_to 'Back', spartans_path %>
