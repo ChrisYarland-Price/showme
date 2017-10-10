@@ -20,17 +20,31 @@ body {
 	height: 100vh;
 	color: #202529;
 
+	a {
+		color: #2e373c;
+	}
+	a:hover {
+		color: #202529;
+		background-color: #34beef;
+		text-decoration: none;
+	}
+
 	div {
-		background-color: #eef4f6;
 	}
 
 	.card {
 		overflow: hidden;
+		background-color: #eef4f6;
 	}
 
 	.project_image {
 		width: auto;
 		height: 200px;
-		margin: 0 auto;
+	}
+
+	.new_project {
+		display: inline-block;
+		margin:	5px;
+		text-align: center;
 	}
 }
