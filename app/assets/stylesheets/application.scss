@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
+body {
+	width: 100vw;
+	height: 100vh;
+	color: #202529;
+
+	a {
+		color: #2e373c;
+	}
+	a:hover {
+		color: #202529;
+		background-color: #34beef;
+		text-decoration: none;
+	}
+
+	div {
+	}
+
+	.card {
+		overflow: hidden;
+		background-color: #eef4f6;
+	}
+
+	.project_image {
+		width: auto;
+		height: 200px;
+	}
+
+	.new_project {
+		display: inline-block;
+		margin:	5px;
+		text-align: center;
+	}
+}
