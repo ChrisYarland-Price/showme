@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009151921) do
+ActiveRecord::Schema.define(version: 20171010143339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(version: 20171009151921) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_spartans_on_email", unique: true
     t.index ["reset_password_token"], name: "index_spartans_on_reset_password_token", unique: true
+  end
+
+  create_table "spartans_projects", force: :cascade do |t|
+    t.integer "spartan_id"
+    t.integer "project_id"
   end
 
 end

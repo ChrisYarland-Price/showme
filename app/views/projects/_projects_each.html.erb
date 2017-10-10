@@ -8,7 +8,7 @@
   <div class="row">
     <% @projects.each do |project| %>
       <div class = "card col-md-4 col-sm-6">
-        <h2><a href="<%= project %>"><%= project.name %></a></h2>
+        <h2><a href="/projects/<%= project.id %>"><%= project.name %></a></h2>
         <% if project.image %>
           <%= image_tag project.image, class: "project_image" %>
         <% else %>
