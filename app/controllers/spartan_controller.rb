@@ -1,7 +1,0 @@
-class SpartanController < ApplicationController
-
-  
-
-  
-  
-end
