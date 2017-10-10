@@ -5,12 +5,14 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def home
     @projects = Project.all.where('published = true')
+    @header = "Published Projects"
   end
 
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.all()
+    @header = "All Projects"
   end
 
   # GET /projects/1
