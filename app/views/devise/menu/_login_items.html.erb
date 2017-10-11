@@ -1,12 +1,15 @@
+<!-- If the user is signed in it will display a button to logout. -->
 <% if spartan_signed_in? %>
 	<%= link_to('Logout', destroy_spartan_session_path, class: "btn btn-secondary", method: :delete) %>
 <% else %>
+<!-- Otherwise it will display the login form. -->
 	<%= form_for(:spartan, :url => session_path(:spartan)) do |f| %>
-	  <%= f.text_field :email %>
-	  <%= f.password_field :password %>
+	  <%= f.text_field :email, placeholder: "Email" %>
+	  <%= f.password_field :password, placeholder: "Password" %>
 	  <%= f.check_box :remember_me %>
 	  <%= f.label :remember_me %>
-	  <%= f.submit 'Login', class: "login-button btn btn-secondary" %>
+	  <%= f.submit 'Login', class: "btn btn-secondary" %>
 	<% end %>
+<!-- This is a simple link to the new password page. -->
 	<%= link_to "Forgot your password?", new_password_path(:spartan)%> 
 <% end %>

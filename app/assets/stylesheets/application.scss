@@ -19,7 +19,15 @@ body {
 	width: 100vw;
 	height: 100vh;
 	color: #202529;
-
+	.white{
+		color: white !important;
+	}
+	.bg-light {
+		background-color: #2E373C !important;
+	}
+	input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #EEF4F6 inset;
+	}
 	a {
 		color: #2e373c;
 	}
@@ -28,7 +36,9 @@ body {
 		background-color: #34beef;
 		text-decoration: none;
 	}
-
+	a:visited{
+		color: inherit;
+	}
 	div {
 	}
 	.login-button{
