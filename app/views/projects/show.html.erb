@@ -1,7 +1,8 @@
 <!-- Show page for an individual project -->
 <p>
-  <strong>Name:</strong>
-  <a href="<%= @project.url %>"><%= @project.name %></a>
+  <h2>
+    <a href="<%= @project.url %>"><%= @project.name %></a>
+  </h2>
 </p>
 
 <!-- Displays a screenshot of the project if there is one in the database, otherwise displays a message -->
@@ -12,7 +13,7 @@
 <% end%>
 
 <p>
-  <strong>Summary:</strong>
+  
   <%= @project.summary %>
 </p>
 
