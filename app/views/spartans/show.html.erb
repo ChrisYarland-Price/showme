@@ -1,8 +1,10 @@
+<!-- Show page for an individual spartan -->
+
 <p>
-  <strong>Name:</strong>
   <h2><%= @spartan.name %></h2>
 </p>
 
+<!-- Displays a profile image of the user if there is one in the database, or a message if not -->
 <% if @spartan.image %>
   <img src="<%= @spartan.image %>" alt="Profile image of this spartan."></img>
 <% else %>
@@ -19,4 +21,5 @@
   <%= @spartan.email %>
 </p>
 
+<!-- Link returns to the spartans index -->
 <%= link_to 'Back', spartans_path %>

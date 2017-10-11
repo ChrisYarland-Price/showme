@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <!-- bootstrap navbar that collapses to burger menu at smaller scree widths -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#"><%= image_tag("sparta-logo.png", :alt => "sparta logo") %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +21,8 @@
           <li class="nav-item active">
             <a class="nav-link" href="/">Projects <span class="sr-only">(current)</span></a>
           </li>
+          
+          <!-- If a user is signed in AND an admin, they can see the link to the spartans index -->
           <% if spartan_signed_in? %>
             <% if current_spartan.admin %>
               <li class="nav-item">
