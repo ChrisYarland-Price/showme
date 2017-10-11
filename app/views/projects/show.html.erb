@@ -19,6 +19,15 @@
   <%= @project.technologies %>
 </p>
 
+<p>
+  <strong>Spartans:</strong>
+  <ul>
+    <% @project.spartans.each do |spartan| %>
+      <li><%= spartan.name %></li>
+    <% end %>
+  </ul>
+</p>
+
 <% if spartan_signed_in? %>
     <% if current_spartan.admin %>
 		<%= link_to 'Edit', edit_project_path(@project) %> |
