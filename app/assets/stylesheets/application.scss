@@ -22,6 +22,10 @@ body {
 	.white{
 		color: white !important;
 	}
+
+	.nav-link{
+		font-size: 16px;
+	}
 	.bg-light {
 		background-color: #2E373C !important;
 	}
@@ -94,7 +98,16 @@ body {
 		margin-top: 10px;
 	}
 
+
+	.navbar-brand:hover {
+		background-color: inherit;
+	}
+
+	.sign_button {
+		float: right;
+
 	.form {
 		margin: 0 10px;
+
 	}
 }
