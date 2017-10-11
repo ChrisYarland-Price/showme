@@ -1,8 +1,10 @@
+<!-- Show page for an individual project -->
 <p>
   <strong>Name:</strong>
   <a href="<%= @project.url %>"><%= @project.name %></a>
 </p>
 
+<!-- Displays a screenshot of the project if there is one in the database, otherwise displays a message -->
 <% if @project.image %>
   <%= image_tag @project.image, class: "project_image", alt: "A screenshot of the game" %>
 <% else %>
