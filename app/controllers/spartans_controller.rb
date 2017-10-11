@@ -13,14 +13,12 @@ class SpartansController < ApplicationController
     @spartan = Spartan.find(params[:id])
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
+    @spartan = Spartan.find(params[:id])
+    @spartan.destroy!
+    redirect_to '/spartans'
   end
+
   
   
 end
