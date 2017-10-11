@@ -56,4 +56,29 @@ body {
 		margin:	5px;
 		text-align: center;
 	}
+
+	.show {
+		margin-left: 5%;
+	}
+
+	.show_image {
+		margin: 5px 0 5px 0;
+	}
+
+	.show_links {
+		background-color: #eef4f6;
+		display: inline;
+		padding: 5px;
+	}
+
+	.show_content {
+		background-color: #eef4f6;
+		margin: 10px 0 10px 0;
+		padding: 5px;
+		display: inline-block;
+	}
+
+	.back {
+		margin-top: 10px;
+	}
 }
