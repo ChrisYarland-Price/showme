@@ -30,3 +30,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Notes on the index page for projects:
+All projects are shown in a grid layout via the projects_each partial. However if you are logged in as a Sparta trainee you will be greeted with all your own projects. If you are logged in as a Sparta staff member you will see all projects by all trainees. If you are not a member then you will see all published projects.
