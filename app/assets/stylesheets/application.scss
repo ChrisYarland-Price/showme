@@ -37,18 +37,19 @@ body {
 		text-decoration: none;
 	}
 
-	a:visited{
+	a:visited {
 		color: inherit !important;
 	}
 
 	p {
 		font-size: 16px;
 	}
-	.login-button{
-		display: inline-block;
+
+	main {
+		margin: 0 30px;
 	}
 
-	.field{
+	.login-button {
 		display: inline-block;
 	}
 
@@ -91,5 +92,9 @@ body {
 
 	.back {
 		margin-top: 10px;
+	}
+
+	.form {
+		margin: 0 10px;
 	}
 }
