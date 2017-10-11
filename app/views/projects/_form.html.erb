@@ -1,0 +1,45 @@
+<div class="form">
+  <%= form_with(model: project, local: true) do |form| %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :project_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :url %>
+      <%= form.text_field :url, id: :project_url %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.text_area :image, id: :project_image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :summary %>
+      <%= form.text_area :summary, id: :project_summary %>
+    </div>
+
+    <div class="field">
+      <%= form.label :technologies %>
+      <%= form.text_area :technologies, id: :project_technologies %>
+    </div>
+
+    <div class="field">
+      <%= form.label :published %>
+      <%= form.check_box :published, id: :project_published %>
+    </div>
+
+    <% if @new_form %>
+      <div class="field">
+        <%= form.label :spartan %>
+        <%= form.collection_select :spartan_id, Spartan.all, :id, :name, prompt: true %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

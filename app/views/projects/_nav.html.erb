@@ -1,0 +1,41 @@
+<!-- This is the navigation bar. -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- This is a picture of the logo. it links to the homepage -->
+  <a class="navbar-brand" href="/">
+    <%= image_tag("sparta-logo.png", :alt => "sparta logo") %>
+  </a>
+<!-- This is the button that allows you to show and hide the menu on smaller screens. -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- This portion of the navbar is for the links to each of the indexes of the projects. -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item white">
+        <a class="nav-link white" href="/home">Published Projects <span class="sr-only">(current)</span></a>
+      </li>
+      <% if spartan_signed_in? %>
+        <% if current_spartan.admin %>
+         <!-- If the spartan is an admin it will display a link to all projects and to the index of spartans. -->
+          <li class="nav-item white">
+            <a class="nav-link white" href="/">All Projects <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item white">
+            <a class="nav-link white" href="/spartans">Spartans</a>
+          </li>
+        <% else %>
+        <!-- if they are logged in but not an admin it will display links to their projects -->
+          <li class="nav-item white">
+            <a class="nav-link white" href="/">Your Projects <span class="sr-only">(current)</span></a>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+<!-- this is the login and registration buttons and form found in /app/views/* -->
+    <div class="hmenu white">
+      <%= render 'devise/menu/login_items' %>
+      <%= render 'devise/menu/registration_items' %>
+    </div>
+    
+  </div>
+</nav>
