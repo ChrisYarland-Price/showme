@@ -18,7 +18,7 @@ liam = Spartan.create!( name: 'Liam North', email: 'lnorth@spartaglobal.com', pa
 
 implodingPuppies = Project.create(name: 'Imploding Puppies', summary: 'Imploding Puppies is an attempt to create a game like exploding kittens online.', url: 'https://chrisyarland-price.github.io/implodingPuppies/', image: 'imploding_puppies.png', technologies: 'HTML5 CSS JavaScript', published: true)
 
-minesweeper = Project.create(name: 'Minesweeper', summary: "Minesweeper is a game", image: 'minesweeper.png')
+minesweeper = Project.create(name: 'Minesweeper', summary: "Minesweeper is a game", url: 'https://marthac3.github.io/project-one', image: 'minesweeper.png')
 
 battleships = Project.create(name: 'Battleships', summary: "A classic battleships game", url: 'https://ltnorth.github.io/project-battleship', image: 'battleships.png', technologies: 'HTML5 CSS JavaScript', published: true)
 

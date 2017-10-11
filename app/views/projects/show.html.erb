@@ -41,16 +41,17 @@
   </div>
   <br/>
   <!-- If current user signed in AND an admin, they can edit and destroy the project-->
-  <div class= "show_links">
-    <% if spartan_signed_in? %>
-        <% if current_spartan.admin %>
+  <% if spartan_signed_in? %>
+    <% if current_spartan.admin %>
+      <div class= "show_links">
     		<%= link_to 'Edit', edit_project_path(@project) %> |
         <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> 
-    	<% end %>
+      </div>
     <% end %>
-  </div>
-  <br/>
+  <% end %>
   
+  <br/>
+
   <!-- Link to return to projects index -->
   <div class= "back">
     <p><%= link_to 'Back', projects_path %></p>

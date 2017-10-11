@@ -11,21 +11,21 @@
   <!-- This portion of the navbar is for the links to each of the indexes of the projects. -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
+      <li class="nav-item white">
         <a class="nav-link white" href="/home">Published Projects <span class="sr-only">(current)</span></a>
       </li>
       <% if spartan_signed_in? %>
         <% if current_spartan.admin %>
          <!-- If the spartan is an admin it will display a link to all projects and to the index of spartans. -->
-          <li class="nav-item">
+          <li class="nav-item white">
             <a class="nav-link white" href="/">All Projects <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item white">
             <a class="nav-link white" href="/spartans">Spartans</a>
           </li>
         <% else %>
         <!-- if they are logged in but not an admin it will display links to their projects -->
-          <li class="nav-item ">
+          <li class="nav-item white">
             <a class="nav-link white" href="/">Your Projects <span class="sr-only">(current)</span></a>
           </li>
         <% end %>
