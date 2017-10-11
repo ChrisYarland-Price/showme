@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit]
 
   # GET /projects
   # GET /projects.json
@@ -42,41 +42,27 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    spartan = Spartan.find(spartans_project_params[:spartan_id])
+    @project = Project.create!(project_params)
+    SpartansProject.create!(spartan_id: spartan.id, project_id: @project.id)
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to @project
   end
 
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
-    end
+    spartan = Spartan.find(params[:spartan_id])
+    @project = spartan.projects.find(params[:id])
+    @project.update(project_params)
+    redirect_to @project
   end
 
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    Spartan.find(params[:spartan_id]).projects.destroy(params[:id])
+    redirect_to '/'
   end
 
   private
@@ -88,5 +74,8 @@ class ProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name, :url, :image, :summary, :technologies, :published)
+    end
+    def spartans_project_params
+      params.require(:project).permit(:spartan_id)
     end
 end
