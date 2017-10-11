@@ -36,10 +36,13 @@ body {
 		background-color: #34beef;
 		text-decoration: none;
 	}
+
 	a:visited{
 		color: inherit !important;
 	}
-	div {
+
+	p {
+		font-size: 16px;
 	}
 	.login-button{
 		display: inline-block;
