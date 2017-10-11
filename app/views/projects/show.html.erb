@@ -1,34 +1,48 @@
 <!-- Show page for an individual project -->
-<p>
-  <h2>
-    <a href="<%= @project.url %>"><%= @project.name %></a>
-  </h2>
-</p>
+<div class= "show">
+  <p>
+    <h2>
+      <a href="<%= @project.url %>"><%= @project.name %></a>
+    </h2>
+  </p>
 
-<!-- Displays a screenshot of the project if there is one in the database, otherwise displays a message -->
-<% if @project.image %>
-  <%= image_tag @project.image, class: "project_image", alt: "A screenshot of the game" %>
-<% else %>
-  <p>There is no image for this project. Could you please add one.</p>
-<% end%>
+  <!-- Displays a screenshot of the project if there is one in the database, otherwise displays a message -->
+  <div class= "show_image">
+    <% if @project.image %>
+      <%= image_tag @project.image, class: "project_image", alt: "A screenshot of the game" %>
+    <% else %>
+      <p>There is no image for this project. Could you please add one.</p>
+    <% end %>
+  </div>
 
-<p>
+  <a href="<%= @project.url %>"><button type="button" class="btn btn-secondary">Visit Project</button></a>
+
+  <br/>
+
+  <div class= "show_content">
+    <p>   
+      <%= @project.summary %>
+    </p>
+
+    <p>
+      <strong>Technologies:</strong>
+      <%= @project.technologies %>
+    </p>
+  </div>
+  <br/>
+  <!-- If current user signed in AND an admin, they can edit and destroy the project-->
+  <div class= "show_links">
+    <% if spartan_signed_in? %>
+        <% if current_spartan.admin %>
+    		<%= link_to 'Edit', edit_project_path(@project) %> |
+        <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> 
+    	<% end %>
+    <% end %>
+  </div>
+  <br/>
   
-  <%= @project.summary %>
-</p>
-
-<p>
-  <strong>Technologies:</strong>
-  <%= @project.technologies %>
-</p>
-
-<!-- If current user signed in AND an admin, they can edit and destroy the project-->
-<% if spartan_signed_in? %>
-    <% if current_spartan.admin %>
-		<%= link_to 'Edit', edit_project_path(@project) %> |
-    <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> 
-	<% end %>
-<% end %>
-
-<!-- Link to return to projects index -->
-<p><%= link_to 'Back', projects_path %></p>
+  <!-- Link to return to projects index -->
+  <div class= "back">
+    <p><%= link_to 'Back', projects_path %></p>
+  </div>
+</div>
