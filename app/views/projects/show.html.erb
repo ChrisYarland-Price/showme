@@ -19,6 +19,7 @@
 
   <br/>
 
+
   <div class= "show_content">
     <p>   
       <%= @project.summary %>
@@ -27,6 +28,15 @@
     <p>
       <strong>Technologies:</strong>
       <%= @project.technologies %>
+    </p>
+    
+    <p>
+      <strong>Spartans:</strong>
+      <ul>
+        <% @project.spartans.each do |spartan| %>
+          <li><%= spartan.name %></li>
+        <% end %>
+      </ul>
     </p>
   </div>
   <br/>

@@ -1,15 +1,4 @@
 <%= form_with(model: project, local: true) do |form| %>
-  <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
-      <% project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= form.label :name %>
@@ -39,6 +28,11 @@
   <div class="field">
     <%= form.label :published %>
     <%= form.check_box :published, id: :project_published %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spartan %>
+    <%= form.collection_select :spartan_id, Spartan.all, :id, :name, prompt: true %>
   </div>
 
   <div class="actions">
