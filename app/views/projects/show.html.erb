@@ -1,8 +1,11 @@
+<!-- Show page for an individual project -->
 <p>
-  <strong>Name:</strong>
-  <a href="<%= @project.url %>"><%= @project.name %></a>
+  <h2>
+    <a href="<%= @project.url %>"><%= @project.name %></a>
+  </h2>
 </p>
 
+<!-- Displays a screenshot of the project if there is one in the database, otherwise displays a message -->
 <% if @project.image %>
   <%= image_tag @project.image, class: "project_image", alt: "A screenshot of the game" %>
 <% else %>
@@ -10,7 +13,7 @@
 <% end%>
 
 <p>
-  <strong>Summary:</strong>
+  
   <%= @project.summary %>
 </p>
 
@@ -19,9 +22,13 @@
   <%= @project.technologies %>
 </p>
 
+<!-- If current user signed in AND an admin, they can edit and destroy the project-->
 <% if spartan_signed_in? %>
     <% if current_spartan.admin %>
 		<%= link_to 'Edit', edit_project_path(@project) %> |
+    <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> 
 	<% end %>
 <% end %>
-<%= link_to 'Back', projects_path %>
+
+<!-- Link to return to projects index -->
+<p><%= link_to 'Back', projects_path %></p>
