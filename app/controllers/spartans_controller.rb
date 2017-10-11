@@ -5,6 +5,8 @@ class SpartansController < ApplicationController
     if spartan_signed_in?
       if current_spartan.admin
         @spartans = Spartan.all
+      else
+        redirect_to '/'
       end
     else
       redirect_to '/'
@@ -21,6 +23,8 @@ class SpartansController < ApplicationController
     if spartan_signed_in?
       if current_spartan.admin
         redirect_to '/spartans'
+      else
+        redirect_to '/'
       end
     else
       redirect_to '/'
