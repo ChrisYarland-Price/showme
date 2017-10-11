@@ -1,9 +1,12 @@
+<!-- Displays users as cards -->
 <div class="container">
   <h1>Users</h1>
     <div class="row">
       <% @spartans.each do |user| %>
+      <!-- Display as a row of three at large screen width, two at small -->
         <div class = "card col-md-4 col-sm-6">
           <h2><a href="spartans/<%= user.id %>"><%= user.name %></a></h2>
+          <!-- Displays a profile image of the user if there is one in the database -->
           <% if user.image %>
             <img src="<%= user.image %>" alt="This user does not have an profile picture."></img>
           <% else %>
