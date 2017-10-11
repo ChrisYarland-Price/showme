@@ -1,25 +1,31 @@
 <!-- Show page for an individual spartan -->
+<div class= "show">
+  <p>
+    <h2><%= @spartan.name %></h2>
+  </p>
 
-<p>
-  <h2><%= @spartan.name %></h2>
-</p>
+  <!-- Displays a profile image of the user if there is one in the database, or a message if not -->
+  <div class= "show_image">
+    <% if @spartan.image %>
+      <img src="<%= @spartan.image %>" alt="Profile image of this spartan."></img>
+    <% else %>
+      <p>There is no image for this spartan. Could you please add one.</p>
+    <% end%>
+  </div>
 
-<!-- Displays a profile image of the user if there is one in the database, or a message if not -->
-<% if @spartan.image %>
-  <img src="<%= @spartan.image %>" alt="Profile image of this spartan."></img>
-<% else %>
-  <p>There is no image for this spartan. Could you please add one.</p>
-<% end%>
+  <div class="show_content">
+    <p>
+      <%= @spartan.bio %>
+    </p>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @spartan.bio %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @spartan.email %>
-</p>
-
-<!-- Link returns to the spartans index -->
-<%= link_to 'Back', spartans_path %>
+    <p>
+      <strong>Email:</strong>
+      <%= @spartan.email %>
+    </p>
+  </div>
+  <br/>
+  <div class= "back">
+    <!-- Link returns to the spartans index -->
+    <%= link_to 'Back', spartans_path %>
+  </div>
+</div>
