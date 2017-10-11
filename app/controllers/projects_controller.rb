@@ -44,16 +44,15 @@ class ProjectsController < ApplicationController
   def create
     spartan = Spartan.find(spartans_project_params[:spartan_id])
     @project = Project.create!(project_params)
-    SpartansProject.create!(spartan_id: spartan.id, project_id: @project.id)
-
+    spartan.projects.push(@project)
     redirect_to @project
   end
 
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    spartan = Spartan.find(params[:spartan_id])
-    @project = spartan.projects.find(params[:id])
+    spartan = Spartan.find(spartans_project_params[:spartan_id])
+    @project = Project.find(params[:id])
     @project.update(project_params)
     redirect_to @project
   end
