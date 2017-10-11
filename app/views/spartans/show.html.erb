@@ -5,13 +5,13 @@
   </p>
 
   <!-- Displays a profile image of the user if there is one in the database, or a message if not -->
-  <% if @spartan.image %>
-    <div class= "show_image">
+  <div class= "show_image">
+    <% if @spartan.image %>
       <img src="<%= @spartan.image %>" alt="Profile image of this spartan."></img>
     <% else %>
       <p>There is no image for this spartan. Could you please add one.</p>
-    </div>
-  <% end%>
+    <% end%>
+  </div>
 
   <div class="show_content">
     <p>
