@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit]
+  before_action :set_project, only: [:show, :edit, :update]
 
   # GET /projects
   # GET /projects.json
@@ -33,10 +33,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @new_form = true
   end
 
   # GET /projects/1/edit
   def edit
+    @new_form = false
   end
 
   # POST /projects
@@ -51,16 +53,16 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    spartan = Spartan.find(spartans_project_params[:spartan_id])
-    @project = Project.find(params[:id])
+    # spartan = Spartan.find(spartans_project_params[:spartan_id])
     @project.update(project_params)
+    # @project.spartans[0].update_attribute(:spartan_id, spartans_project_params[:spartan_id])
     redirect_to @project
   end
 
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    Spartan.find(params[:spartan_id]).projects.destroy(params[:id])
+    Project.destroy(params[:id])
     redirect_to '/'
   end
 

@@ -46,3 +46,6 @@ Sparta colours used throughout for consistency.
 
 Notes on admins deleting user accounts:
 Admins are able to delete non-admin accounts, they are not able to delete other admins.
+
+Notes on new and edit forms:
+Forms have dropdown menus which allow the user to attribute the project being created or updated to a particular spartan. They also have margins on the left and right to be easier to read.

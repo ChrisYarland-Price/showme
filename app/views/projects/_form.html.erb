@@ -31,10 +31,12 @@
       <%= form.check_box :published, id: :project_published %>
     </div>
 
-    <div class="field">
-      <%= form.label :spartan %>
-      <%= form.collection_select :spartan_id, Spartan.all, :id, :name, prompt: true %>
-    </div>
+    <% if @new_form %>
+      <div class="field">
+        <%= form.label :spartan %>
+        <%= form.collection_select :spartan_id, Spartan.all, :id, :name, prompt: true %>
+      </div>
+    <% end %>
 
     <div class="actions">
       <%= form.submit %>
