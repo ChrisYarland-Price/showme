@@ -2,8 +2,10 @@ class SpartansController < ApplicationController
 
 
   def index
-    if current_spartan.admin == true
-      @spartans = Spartan.all
+    if spartan_signed_in?
+      if current_spartan.admin
+        @spartans = Spartan.all
+      end
     else
       redirect_to '/'
     end
@@ -16,7 +18,13 @@ class SpartansController < ApplicationController
   def destroy
     @spartan = Spartan.find(params[:id])
     @spartan.destroy!
-    redirect_to '/spartans'
+    if spartan_signed_in?
+      if current_spartan.admin
+        redirect_to '/spartans'
+      end
+    else
+      redirect_to '/'
+    end
   end
 
   
