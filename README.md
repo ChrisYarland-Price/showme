@@ -43,3 +43,6 @@ Grey backgrounds behind text for ease of reading.
 Font size minimum 16px for ease of reading.
 Overwrite of bootstraps visited link colour for consistency.
 Sparta colours used throughout for consistency.
+
+Notes on admins deleting user accounts:
+Admins are able to delete non-admin accounts, they are not able to delete other admins.
