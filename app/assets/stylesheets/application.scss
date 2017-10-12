@@ -19,12 +19,16 @@ body {
 	width: 100vw;
 	height: 100vh;
 	color: #202529;
+
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 16px;
+
 	.white{
 		color: white !important;
 	}
 
 	.nav-link{
-		font-size: 16px;
+		font-size: 18px;
 	}
 	.bg_light {
 		background-color: #2E373C !important;
@@ -32,6 +36,7 @@ body {
 	input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px #EEF4F6 inset;
 	}
+
 	a {
 		color: #2e373c;
 	}
@@ -43,6 +48,49 @@ body {
 
 	a:visited{
 		color: inherit !important;
+	}
+
+	.row {
+		margin-top: 35px;
+	}
+
+	input, .btn {
+		margin-left: 10px;
+	}
+
+	.new_project {
+		margin-right: 20px;
+		line-height: 20px;
+		display: inline-block;
+	}
+
+	.gutter {
+		padding: 0 10px;
+	}
+
+	.card {
+		padding: 20px;
+		// min-height: 500px;
+	}
+
+	.card-footer {
+		text-align: center;
+	}
+
+	.white{
+		color: white !important;
+	}
+
+	.nav-link{
+		font-size: 16px;
+	}
+
+	.bg-light {
+		background-color: #2E373C !important;
+	}
+
+	input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #EEF4F6 inset;
 	}
 
 	p {
@@ -69,12 +117,6 @@ body {
 	.project_image {
 		width: auto;
 		height: 200px;
-	}
-
-	.new_project {
-		display: inline-block;
-		margin:	5px;
-		text-align: center;
 	}
 
 	.show {
@@ -126,6 +168,13 @@ body {
 
 	.navbar-toggler {
 		background-color: #eef4f6 !important;
+  }
+	.sign_button {
+		float: right;
+	}
+
+	.form {
+		margin: 0 10px;
 	}
 
 }

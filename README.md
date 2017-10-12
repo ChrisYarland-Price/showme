@@ -33,6 +33,7 @@ Things you may want to cover:
 
 Notes on the index page for projects:
 All projects are shown in a grid layout via the projects_each partial. However if you are logged in as a Sparta trainee you will be greeted with all your own projects. If you are logged in as a Sparta staff member you will see all projects by all trainees. If you are not a member then you will see all published projects.
+Cards have been put in a card-deck which aligns the cards titles and footers and spaces the cards out. The links have been placed in a footer and separated by lines. The summaries and technologies have been removed from the cards so that the cards are more uniform. The page header and the "New Project" button have been separated and are spaced out from the cards.
 
 Notes on different user access:
 Using 'spartan_signed_in?' to restrict access to logged in users only and 'current_spartan.admin' to restrict access to admins only, different kinds of users are able to access different features, for example only admins are able to edit another user's project.
@@ -46,3 +47,6 @@ Sparta colours used throughout for consistency.
 
 Notes on admins deleting user accounts:
 Admins are able to delete non-admin accounts, they are not able to delete other admins.
+
+Notes on new and edit forms:
+Forms have dropdown menus which allow the user to attribute the project being created or updated to a particular spartan. They also have margins on the left and right to be easier to read.
