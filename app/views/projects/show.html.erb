@@ -40,14 +40,12 @@
     </p>
   </div>
   <br/>
-  <!-- If current user signed in AND an admin, they can edit and destroy the project-->
+<!-- If the current user is a staff member they have access to links which edit or destroy projects -->
   <% if spartan_signed_in? %>
-    <% if current_spartan.admin || current_spartan.id = @project.spartans %>
-      <div class= "show_links">
-    		<%= link_to 'Edit', edit_project_path(@project) %> |
-        <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> 
-      </div>
-    <% end %>
+      <%if current_spartan.admin ||@project.spartans.map{|i| current_spartan.id == i.id }%>
+        <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+        <td><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
   <% end %>
   
   <br/>

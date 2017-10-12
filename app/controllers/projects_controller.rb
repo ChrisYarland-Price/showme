@@ -44,18 +44,25 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    spartan = Spartan.find(spartans_project_params[:spartan_id])
     @project = Project.create!(project_params)
-    spartan.projects.push(@project)
+    spartans_project_params[:spartan_ids].drop(1).each{ |s_id|
+      spartan = Spartan.find(s_id)
+      spartan.projects.push(@project)
+    }
+    
     redirect_to @project
   end
 
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    # spartan = Spartan.find(spartans_project_params[:spartan_id])
-    @project.update(project_params)
-    # @project.spartans[0].update_attribute(:spartan_id, spartans_project_params[:spartan_id])
+  #   spartans_project_params[:spartan_id].drop(1).each{ |s_id|
+  #     spartan = Spartan.find(s_id)
+  #     @project.update(project_params)
+  #     @project.spartans = s_id
+  # }
+    spartans_project_params[:spartan_ids].slice!(0)
+    @project.spartan_ids = spartans_project_params[:spartan_ids]
     redirect_to @project
   end
 
@@ -77,6 +84,6 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:name, :url, :image, :summary, :technologies, :published)
     end
     def spartans_project_params
-      params.require(:project).permit(:spartan_id)
+      params.require(:project).permit(:spartan_ids => [])
     end
 end
