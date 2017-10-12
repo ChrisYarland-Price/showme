@@ -30,7 +30,7 @@ body {
 	.nav-link{
 		font-size: 18px;
 	}
-	.bg-light {
+	.bg_light {
 		background-color: #2E373C !important;
 	}
 	input:-webkit-autofill {
@@ -46,7 +46,7 @@ body {
 		text-decoration: none;
 	}
 
-	a:visited {
+	a:visited{
 		color: inherit !important;
 	}
 
@@ -94,14 +94,18 @@ body {
 	}
 
 	p {
-		font-size: 16px;
+		font-size: 1rem;
 	}
 
-	main {
-		margin: 0 30px;
+	ul {
+		font-size: 1rem;
+		line-height: 1.5em;
+	}
+	.login-button{
+		display: inline-block;
 	}
 
-	.login-button {
+	.field{
 		display: inline-block;
 	}
 
@@ -116,35 +120,55 @@ body {
 	}
 
 	.show {
-		margin-left: 5%;
+		//margin-left: 5%;
+		margin-top: 10px;
+		background-color: #eef4f6;
+		padding: 20px;
+		width: 100%;
+		//display: inline-block;
+	}
+
+	.sidebar {
+		//display: inline-block;
+		//margin-left: 5%;
+		margin-top: 10px;
+		float: right;
+		width: 100%;
+	}
+
+	.side_item {
+		background-color: #eef4f6;
+		margin-bottom: 10px;
+		padding: 20px;
 	}
 
 	.show_image {
-		margin: 5px 0 5px 0;
+		margin: 15px 0 15px 0;
 	}
 
 	.show_links {
 		background-color: #eef4f6;
-		display: inline;
+		display: inline-block;
 		padding: 5px;
 	}
 
 	.show_content {
-		background-color: #eef4f6;
 		margin: 10px 0 10px 0;
 		padding: 5px;
-		display: inline-block;
+		//display: inline-block;
 	}
 
 	.back {
 		margin-top: 10px;
 	}
 
-
-	.navbar-brand:hover {
+	.navbar_brand:hover {
 		background-color: inherit;
 	}
 
+	.navbar-toggler {
+		background-color: #eef4f6 !important;
+  }
 	.sign_button {
 		float: right;
 	}
@@ -152,4 +176,5 @@ body {
 	.form {
 		margin: 0 10px;
 	}
+
 }
