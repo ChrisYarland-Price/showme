@@ -26,13 +26,15 @@
       <%= form.text_area :course, id: :spartan_course %>
     </div>
 
-    <div class="field">
-      <%= form.label :admin %>
-      <%= form.check_box :admin, id: :spartan_admin %>
-    </div>
+    <% if current_spartan.admin && current_spartan != @spartan %>
+      <div class="field">
+        <%= form.label :admin %>
+        <%= form.check_box :admin, id: :spartan_admin %>
+      </div>
+    <% end %>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit class: "btn btn-secondary pointer"%>
     </div>
   <% end %>
 </div>

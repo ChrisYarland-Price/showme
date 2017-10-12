@@ -1,8 +1,19 @@
 <main>
-	<h1>Editing Spartan</h1>
-
-	<%= render 'form', spartan: @spartan %>
-
-	<%= link_to 'Show', @spartan %> |
-	<%= link_to 'Back', spartans_path %>
+	
+	<div class="container">
+		<div class="row">
+			<div class="show col-md-8 col-sm-12">
+				<h1>Edit Spartan</h1>
+				<%= render 'form', spartan: @spartan %>
+			</div>
+			<div class="sidebar col-md-4 col-sm-12">
+				<div class="side_item">
+					<% if current_spartan == @spartan %>
+				  	<%= link_to('Account settings', edit_spartan_registration_path, class: "btn btn-secondary btn-tertiary") %>
+				  <% end %>
+				  <div class="back"><p><%= link_to 'Back', @spartan, class: "btn btn-secondary" %></p></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </main>
