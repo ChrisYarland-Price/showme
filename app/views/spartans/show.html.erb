@@ -1,31 +1,52 @@
 <!-- Show page for an individual spartan -->
-<div class= "show">
-  <p>
-    <h2><%= @spartan.name %></h2>
-  </p>
+<div class="container">
+  <!-- top row contains main content and sidebar -->
+  <div class="row">
+    <!-- left column is main content -->
+    <div class="col-md-8 col-sm-12">
+      <div class= "show">
+        <h2><%= @spartan.name %></h2>
 
-  <!-- Displays a profile image of the user if there is one in the database, or a message if not -->
-  <div class= "show_image">
-    <% if @spartan.image %>
-      <img src="<%= @spartan.image %>" alt="Profile image of this spartan."></img>
-    <% else %>
-      <p>There is no image for this spartan. Could you please add one.</p>
-    <% end%>
+        <!-- Displays a profile image of the user if there is one in the database, or a message if not -->
+        <div class= "show_image">
+          <% if @spartan.image %>
+            <img src="<%= @spartan.image %>" alt="Profile image of this spartan."></img>
+          <% else %>
+            <p>There is no image for this spartan. Could you please add one.</p>
+          <% end%>
+        </div>
+
+        <div class="show_content">
+            <%= @spartan.bio %>
+        </div>
+      </div>
+    </div>
+
+    <!-- right column is the sidebar -->
+    <div class="col-md-4 col-sm-12">
+      <div class="sidebar">
+        <div class="side_item">
+          <h3>Email</h3>
+          <%= @spartan.email %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="show_content">
-    <p>
-      <%= @spartan.bio %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @spartan.email %>
-    </p>
-  </div>
-  <br/>
-  <div class= "back">
-    <!-- Link returns to the spartans index -->
-    <%= link_to 'Back', spartans_path %>
+  <!-- second row is the links -->
+  <div class="row">
+    <!-- there is only one column in this row but it in line with the left hand column in the row above -->
+    <div class="col-md-8 col-sm-12">
+      <div class= "show">
+        <div class="show-links">
+          <%= link_to 'Edit', edit_spartan_path, method: :get %> |
+          <%= link_to 'Destroy', @spartan, method: :delete, data: {confirm: 'Are you sure?' } %>
+        </div>
+      <!-- Link returns to the spartans index -->
+        <div class= "back">
+          <p><%= link_to 'Back', spartans_path, class: "btn btn-secondary" %></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

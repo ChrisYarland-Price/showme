@@ -19,19 +19,24 @@ body {
 	width: 100vw;
 	height: 100vh;
 	color: #202529;
-	.white {
+
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 16px;
+
+	.white{
 		color: white !important;
 	}
 
-	.nav-link {
-		font-size: 16px;
+	.nav-link{
+		font-size: 18px;
 	}
-	.bg-light {
+	.bg_light {
 		background-color: #2E373C !important;
 	}
 	input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px #EEF4F6 inset;
 	}
+
 	a {
 		color: #2e373c;
 	}
@@ -41,19 +46,67 @@ body {
 		text-decoration: none;
 	}
 
-	a:visited {
+	a:visited{
 		color: inherit !important;
 	}
 
-	p {
+	.row {
+		margin-top: 5px;
+	}
+
+	input, .btn {
+		margin-left: 10px;
+	}
+
+	.page_header {
+		margin-right: 20px;
+		line-height: 20px;
+		display: inline-block;
+	}
+
+	.gutter {
+		padding: 0 10px;
+		margin-top: 30px;
+	}
+
+	.card {
+		padding: 20px;
+		// min-height: 500px;
+	}
+
+	.card-footer {
+		text-align: center;
+	}
+
+	.white{
+		color: white !important;
+	}
+
+	.nav-link{
 		font-size: 16px;
 	}
 
-	main {
-		margin: 0 30px;
+	.bg-light {
+		background-color: #2E373C !important;
 	}
 
-	.login-button {
+	input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #EEF4F6 inset;
+	}
+
+	p {
+		font-size: 1rem;
+	}
+
+	ul {
+		font-size: 1rem;
+		line-height: 1.5em;
+	}
+	.login-button{
+		display: inline-block;
+	}
+
+	.field{
 		display: inline-block;
 	}
 
@@ -67,48 +120,62 @@ body {
 		height: 200px;
 	}
 
-	.new_project {
-		display: inline-block;
-		margin:	5px;
-		text-align: center;
+	.show {
+		//margin-left: 5%;
+		margin-top: 10px;
+		background-color: #eef4f6;
+		padding: 20px 20px 10px 20px;
+		width: 100%;
+		//display: inline-block;
 	}
 
-	.show {
-		margin-left: 5%;
+	.sidebar {
+		//display: inline-block;
+		//margin-left: 5%;
+		margin-top: 10px;
+		float: right;
+		width: 100%;
+	}
+
+	.side_item {
+		background-color: #eef4f6;
+		margin-bottom: 10px;
+		padding: 20px;
 	}
 
 	.show_image {
-		margin: 5px 0 5px 0;
+		margin: 15px 0 15px 0;
 	}
 
 	.show_links {
 		background-color: #eef4f6;
-		display: inline;
+		display: inline-block;
 		padding: 5px;
 	}
 
 	.show_content {
-		background-color: #eef4f6;
 		margin: 10px 0 10px 0;
 		padding: 5px;
-		display: inline-block;
+		//display: inline-block;
 	}
 
 	.back {
 		margin-top: 10px;
 	}
 
-
-	.navbar-brand:hover {
+	.navbar_brand:hover {
 		background-color: inherit;
 	}
 
+	.navbar-toggler {
+		background-color: #eef4f6 !important;
+  	}
 	.sign_button {
 		float: right;
 	}
 
 	.form {
 		margin: 0 10px;
-
 	}
+
 }
