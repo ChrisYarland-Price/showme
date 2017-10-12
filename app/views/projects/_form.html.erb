@@ -1,45 +1,48 @@
 <div class="form">
   <%= form_with(model: project, local: true) do |form| %>
-
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, id: :project_name %>
-    </div>
-
-    <div class="field">
-      <%= form.label :url %>
-      <%= form.text_field :url, id: :project_url %>
-    </div>
-
-    <div class="field">
-      <%= form.label :image %>
-      <%= form.text_area :image, id: :project_image %>
-    </div>
-
-    <div class="field">
-      <%= form.label :summary %>
-      <%= form.text_area :summary, id: :project_summary %>
-    </div>
-
-    <div class="field">
-      <%= form.label :technologies %>
-      <%= form.text_area :technologies, id: :project_technologies %>
-    </div>
-
-    <div class="field">
-      <%= form.label :published %>
-      <%= form.check_box :published, id: :project_published %>
-    </div>
-
-    <% if @new_form %>
-      <div class="field">
-        <%= form.label :spartan %>
-        <%= form.collection_select :spartan_id, Spartan.all, :id, :name, prompt: true %>
+    <div class="row">
+      <div class="field form-group col">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :project_name, class: "form-control"%>
       </div>
-    <% end %>
+
+      <div class="field form-group col">
+        <%= form.label :url %>
+        <%= form.text_field :url, id: :project_url, class: "form-control"%>
+      </div>
+    </div>
+    
+
+    <div class="field form-group">
+      <%= form.label :image %>
+      <%= form.text_area :image, id: :project_image, class: "form-control"%>
+    </div>
+
+    <div class="field form-group">
+      <%= form.label :summary %>
+      <%= form.text_area :summary, id: :project_summary, class: "form-control"%>
+    </div>
+    <div class="row">
+      <div class="field form-group col">
+        <%= form.label :technologies %>
+        <%= form.text_area :technologies, id: :project_technologies, class: "form-control"%>
+      </div>
+
+      <div class="field form-group col">
+        <%= form.label :spartan %>
+        <% spartans_array = Spartan.all.map { |spartan| [spartan.name, spartan.id] } %>
+        <%= form.select(:spartan_ids, options_for_select(spartans_array), { include_blank: false},{multiple: true, size: 5, class: "form-control"})%>
+      </div>
+    </div>
+    
+
+    <div class="field form-group">
+      <%= form.label :published %>
+      <%= form.check_box :published, id: :project_published, class: "form-control"%>
+    </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit "Edit Project", class: "btn btn-secondary"%>
     </div>
   <% end %>
 </div>

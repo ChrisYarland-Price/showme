@@ -9,28 +9,30 @@
   <!-- All projects are in cards which take up 4 columns of the bootstrap grid then 6 when small. They are all in one row. -->
   <div class="row">
     <% @projects.each do |project| %>
-      <div class="gutter col-md-4 col-sm-6">
-        <div class="card">
-          
-          <h3 class="card-title"><a href="/projects/<%= project.id %>"><%= project.name %></a></h3>
-          <% if project.image %>
-            <%= image_tag project.image, class: "project_image" %>
-          <% end%>
+      <div class = "card col-md-4 col-sm-6">
 
-          <div class="card-footer bg-transparent">
-            <a href="<%= project.url %>">Visit project</a>
-            <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
-            <% if spartan_signed_in? %>
-              <% if current_spartan.admin || current_spartan.id == project.spartans %>
-                 | <td><%= link_to 'Edit', edit_project_path(project) %></td> | 
-                <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
+        <h2><a href="/projects/<%= project.id %>"><%= project.name %></a></h2>
+        <% if project.image %>
+          <%= image_tag project.image, class: "project_image" %>
+        <% end%>
+
+        <h4>Summary: </h4>
+        <p><%= project.summary %></p>
+
+        <h4>Technologies: </h4>
+        <p><%= project.technologies %></p>
+
+        <a href="<%= project.url %>">Visit project</a>
+
+        <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
+        <% if spartan_signed_in? %>
+          <%  project.spartans.map{|i| %>
+            <%if current_spartan.admin || current_spartan.id == i.id %>
+              <td><%= link_to 'Edit', edit_project_path(project) %></td>
+              <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
-          </div>
-
-        </div>
-      </div>
-
+          <% } %>
+        <% end %>
     <% end %>
   </div>
 </div>

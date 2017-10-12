@@ -60,16 +60,13 @@
     <!-- there is only one column in this row but it in line with the left hand column in the row above -->
     <div class="col-md-8 col-sm-12">
       <div class= "show">
-        <!-- If current user signed in AND an admin, they can edit and destroy the project-->
+        <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
         <% if spartan_signed_in? %>
-          <% if current_spartan.admin %>
-            <div class= "show_links">
-            	<%= link_to 'Edit', edit_project_path(@project) %> |
-              <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> 
-            </div>
+          <%if current_spartan.admin ||@project.spartans.map{|i| current_spartan.id == i.id }%>
+            <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+            <td><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
-        <% end %>
-  
+        <% end %>  
 
           <!-- Link to return to projects index -->
         <div class= "back">
