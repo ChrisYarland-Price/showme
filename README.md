@@ -51,3 +51,6 @@ Admins are able to delete non-admin accounts, they are not able to delete other 
 
 Notes on new and edit forms:
 Forms have dropdown menus which allow the user to attribute the project being created or updated to a particular spartan. They also have margins on the left and right to be easier to read.
+
+Notes on editing spartans:
+Admins can edit all spartans and can delete non-admins. All spartans can edit their own profiles and from that view they can link to the edit account page.
