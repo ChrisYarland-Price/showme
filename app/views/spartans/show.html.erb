@@ -39,12 +39,12 @@
     <div class="col-md-8 col-sm-12">
       <div class= "show">
         <div class="show-links">
-          Edit |
+          <%= link_to 'Edit', edit_spartan_path, method: :get %> |
           <%= link_to 'Destroy', @spartan, method: :delete, data: {confirm: 'Are you sure?' } %>
         </div>
       <!-- Link returns to the spartans index -->
         <div class= "back">
-          <p><button type="button" class="btn btn-secondary"><%= link_to 'Back', spartans_path %></button></p>
+          <p><%= link_to 'Back', spartans_path, class: "btn btn-secondary" %></p>
         </div>
       </div>
     </div>
