@@ -46,6 +46,10 @@ body {
 		text-decoration: none;
 	}
 
+	button:hover {
+		color: inherit !important;
+	}
+
 	a:visited{
 		color: inherit !important;
 	}
@@ -164,7 +168,7 @@ body {
 	}
 
 	.navbar_brand:hover {
-		background-color: inherit;
+		background-color: none !important;
 	}
 
 	.navbar-toggler {
@@ -176,6 +180,14 @@ body {
 
 	.form {
 		margin: 0 10px;
+	}
+
+	.btn-secondary {
+		color: #ffffff !important;
+	}
+
+	.btn-secondary:visited {
+		color: #ffffff !important;
 	}
 
 }
