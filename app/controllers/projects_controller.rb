@@ -38,7 +38,6 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @new_form = false
   end
 
   # POST /projects
