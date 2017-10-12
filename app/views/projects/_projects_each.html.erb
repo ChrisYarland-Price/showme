@@ -19,7 +19,7 @@
           
 
           <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
-          <div class="card-footer">
+          <div class="card-footer bg-transparent">
             <a href="<%= project.url %>">Visit project</a>
             <% if spartan_signed_in? %>
               <%  project.spartans.map{|i| %>
