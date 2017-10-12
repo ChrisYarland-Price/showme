@@ -40,6 +40,7 @@ body {
 	a {
 		color: #2e373c;
 	}
+
 	a:hover {
 		color: #202529;
 		background-color: #34beef;
@@ -163,13 +164,9 @@ body {
 		margin-top: 10px;
 	}
 
-	.navbar_brand:hover {
-		background-color: none !important;
-	}
-
 	.navbar-toggler {
 		background-color: #eef4f6 !important;
-  }
+  	}
 	.sign_button {
 		float: right;
 	}
@@ -184,6 +181,10 @@ body {
 
 	.btn-secondary:visited {
 		color: #ffffff !important;
+	}
+
+	#brand:hover {
+		background-color: inherit !important;
 	}
 
 }
