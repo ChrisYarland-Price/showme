@@ -18,11 +18,11 @@
           <% end%>
 
           <div class="card-footer bg-transparent">
-            <a href="<%= project.url %>">Visit project</a> | 
+            <a href="<%= project.url %>">Visit project</a>
             <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
             <% if spartan_signed_in? %>
               <% if current_spartan.admin || current_spartan.id == project.spartans %>
-                <td><%= link_to 'Edit', edit_project_path(project) %></td> | 
+                 | <td><%= link_to 'Edit', edit_project_path(project) %></td> | 
                 <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             <% end %>
