@@ -3,28 +3,26 @@
   <div class="row">   <!-- Header placed in a row to conform with the project index pages. Header is also given the same classes as the headers in the project index pages to keep everything uniform -->
     <h1 class="page_header col-auto">Spartans</h1>
   </div>
-   <div class="row">
-    <div class="card-deck">
-      <% @spartans.each do |user| %>
-        <!-- Display as a row of three at large screen width, two at small -->
-        <div class="gutter col-md-4 col-sm-6">
-          <div class="card">
-            <h3 class="card-title"><a href="spartans/<%= user.id %>"><%= user.name %></a></h3>
-            <!-- Displays a profile image of the user if there is one in the database -->
-            <% if user.image %>
-              <img src="<%= user.image %>" alt="This user does not have an profile picture."</img>
+  <div class="row">
+    <% @spartans.each do |user| %>
+      <!-- Display as a row of three at large screen width, two at small -->
+      <div class="gutter col-md-4 col-sm-6">
+        <div class="card">
+          <h3 class="card-title"><a href="spartans/<%= user.id %>"><%= user.name %></a></h3>
+          <!-- Displays a profile image of the user if there is one in the database -->
+          <% if user.image %>
+            <img src="<%= user.image %>" alt="This user does not have an profile picture."</img>
+          <% end %>
+          <h5>Email: </h5>
+          <p><%= user.email %></p>
+          <div class="card-footer bg-transparent">
+            <!-- Admin can destroy non-admins -->
+            <% if !user.admin %>
+              <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
-            <h5>Email: </h5>
-            <p><%= user.email %></p>
-            <div class="card-footer bg-transparent">
-              <!-- Admin can destroy non-admins -->
-              <% if !user.admin %>
-                <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-            </div>
           </div>
         </div>
-      <% end %>
-    </div>
-   </div>
+      </div>
+    <% end %>
+  </div>
 </div>

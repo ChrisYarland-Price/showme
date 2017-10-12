@@ -33,7 +33,7 @@ Things you may want to cover:
 
 Notes on the index page for projects and users:
 All projects are shown in a grid layout via the projects_each partial. However if you are logged in as a Sparta trainee you will be greeted with all your own projects. If you are logged in as a Sparta staff member you will see all projects by all trainees. If you are not a member then you will see all published projects.
-Cards have been put in a card-deck which aligns the cards titles and footers and spaces the cards out. The links have been placed in a footer and separated by lines.
+All listed projects and users are represented in cards on their respective index pages. Three are shown on each line and are appropriately spaced out. The links have been placed in a footer and separated by lines.
 The Spartan index page is styled to conform with the aesthetics of the projects index page.
 
 Notes on different user access:
