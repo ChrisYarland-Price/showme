@@ -42,7 +42,7 @@
   <br/>
   <!-- If current user signed in AND an admin, they can edit and destroy the project-->
   <% if spartan_signed_in? %>
-    <% if current_spartan.admin %>
+    <% if current_spartan.admin || current_spartan.id = @project.spartans %>
       <div class= "show_links">
     		<%= link_to 'Edit', edit_project_path(@project) %> |
         <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> 
