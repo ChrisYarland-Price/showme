@@ -1,0 +1,38 @@
+<div class="form">
+  <%= form_with(model: spartan, local: true) do |form| %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :spartan_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :spartan_email %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.text_area :image, id: :spartan_image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :bio %>
+      <%= form.text_area :bio, id: :spartan_bio %>
+    </div>
+
+    <div class="field">
+      <%= form.label :course %>
+      <%= form.text_area :course, id: :spartan_course %>
+    </div>
+
+    <div class="field">
+      <%= form.label :admin %>
+      <%= form.check_box :admin, id: :spartan_admin %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

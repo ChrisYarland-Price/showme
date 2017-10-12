@@ -46,19 +46,23 @@ body {
 		text-decoration: none;
 	}
 
+	button:hover {
+		color: inherit !important;
+	}
+
 	a:visited{
 		color: inherit !important;
 	}
 
 	.row {
-		margin-top: 35px;
+		margin-top: 5px;
 	}
 
 	input, .btn {
 		margin-left: 10px;
 	}
 
-	.new_project {
+	.page_header {
 		margin-right: 20px;
 		line-height: 20px;
 		display: inline-block;
@@ -66,6 +70,7 @@ body {
 
 	.gutter {
 		padding: 0 10px;
+		margin-top: 30px;
 	}
 
 	.card {
@@ -105,10 +110,6 @@ body {
 		display: inline-block;
 	}
 
-	.field{
-		display: inline-block;
-	}
-
 	.card {
 		overflow: hidden;
 		background-color: #eef4f6;
@@ -123,7 +124,7 @@ body {
 		//margin-left: 5%;
 		margin-top: 10px;
 		background-color: #eef4f6;
-		padding: 20px;
+		padding: 20px 20px 10px 20px;
 		width: 100%;
 		//display: inline-block;
 	}
@@ -163,7 +164,7 @@ body {
 	}
 
 	.navbar_brand:hover {
-		background-color: inherit;
+		background-color: none !important;
 	}
 
 	.navbar-toggler {
@@ -175,6 +176,14 @@ body {
 
 	.form {
 		margin: 0 10px;
+	}
+
+	.btn-secondary {
+		color: #ffffff !important;
+	}
+
+	.btn-secondary:visited {
+		color: #ffffff !important;
 	}
 
 }
