@@ -1,4 +1,5 @@
 class SpartansController < ApplicationController
+  before_action :set_spartan, only: [:show, :edit, :update]
 
   # Redirected to home if not an admin
   def index
@@ -10,7 +11,7 @@ class SpartansController < ApplicationController
   end
 
   def show
-    @spartan = Spartan.find(params[:id])
+
   end
 
   # Redirected to home if not an admin
@@ -24,6 +25,23 @@ class SpartansController < ApplicationController
     end
   end
 
-  
+  def edit
+
+  end
+
+  def update
+    @spartan.update(spartan_params)
+    redirect_to @spartan
+  end
+
+  private
+
+  def set_spartan
+    @spartan = Spartan.find(params[:id])
+  end
+
+  def spartan_params
+    params.require(:spartan).permit(:name, :email, :image, :bio, :course, :admin)
+  end
   
 end
