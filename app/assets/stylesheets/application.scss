@@ -26,7 +26,7 @@ body {
 	.nav-link{
 		font-size: 16px;
 	}
-	.bg-light {
+	.bg_light {
 		background-color: #2E373C !important;
 	}
 	input:-webkit-autofill {
@@ -41,19 +41,18 @@ body {
 		text-decoration: none;
 	}
 
-	a:visited {
+	a:visited{
 		color: inherit !important;
 	}
 
 	p {
 		font-size: 16px;
 	}
-
-	main {
-		margin: 0 30px;
+	.login-button{
+		display: inline-block;
 	}
 
-	.login-button {
+	.field{
 		display: inline-block;
 	}
 
@@ -75,6 +74,20 @@ body {
 
 	.show {
 		margin-left: 5%;
+		margin-top: 5px;
+		background-color: #eef4f6;
+		padding: 10px;
+		width: 60%;
+		display: inline-block;
+	}
+
+	.sidebar {
+		font-size: 16px;
+		display: inline;
+		background-color: #eef4f6;
+		float: right;
+		width: 30%;
+		margin: 5px 30px 0 0;
 	}
 
 	.show_image {
@@ -83,12 +96,11 @@ body {
 
 	.show_links {
 		background-color: #eef4f6;
-		display: inline;
+		display: inline-block;
 		padding: 5px;
 	}
 
 	.show_content {
-		background-color: #eef4f6;
 		margin: 10px 0 10px 0;
 		padding: 5px;
 		display: inline-block;
@@ -98,16 +110,7 @@ body {
 		margin-top: 10px;
 	}
 
-
-	.navbar-brand:hover {
+	.navbar_brand:hover {
 		background-color: inherit;
-	}
-
-	.sign_button {
-		float: right;
-
-	.form {
-		margin: 0 10px;
-
 	}
 }
