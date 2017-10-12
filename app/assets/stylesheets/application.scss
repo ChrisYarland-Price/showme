@@ -19,12 +19,15 @@ body {
 	width: 100vw;
 	height: 100vh;
 	color: #202529;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 16px;
+
 	.white{
 		color: white !important;
 	}
 
 	.nav-link{
-		font-size: 16px;
+		font-size: 18px;
 	}
 	.bg-light {
 		background-color: #2E373C !important;
@@ -105,7 +108,7 @@ body {
 
 	.sign_button {
 		float: right;
-
+	}
 	.form {
 		margin: 0 10px;
 
