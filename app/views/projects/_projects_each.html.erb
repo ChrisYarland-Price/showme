@@ -1,9 +1,9 @@
 <div class="container">
   <!-- Header and "New Project" button in their own row for alignment purposes -->
   <div class="row">
-    <h1 class="new_project"><%= @header %></h1>
+    <h1 class="page_header col-auto mr-auto"><%= @header %></h1>
       <% if spartan_signed_in? %>
-        <%= link_to 'New Project', new_project_path, class: "new_project btn" %>
+        <%= link_to 'New Project', new_project_path, class: "page_header btn col-auto" %>
       <% end %>
   </div>
   <!-- All projects are in cards which take up 4 columns of the bootstrap grid then 6 when small. They are all in one row. -->
@@ -33,9 +33,6 @@
             <% end %>
           <% } %>
         <% end %>
-
-      </div>
-
     <% end %>
   </div>
 </div>
