@@ -25,7 +25,8 @@
           </p>
           
         </div>
-        <p><a href="<%= @project.url %>"><button type="button" class="btn btn-secondary">Visit Project</button></a></p>
+        
+         <p><%= link_to 'Visit Project', @project.url, class: "btn btn-secondary" %></p>
       </div>
     </div>
 
@@ -72,7 +73,7 @@
 
           <!-- Link to return to projects index -->
         <div class= "back">
-          <p><button type="button" class="btn btn-secondary"><%= link_to 'Back', projects_path %></button></p>
+          <p><%= link_to 'Back', projects_path, class: "btn btn-secondary" %></p>
         </div>
       </div>
     </div>

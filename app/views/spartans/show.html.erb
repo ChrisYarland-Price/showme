@@ -39,8 +39,10 @@
     <div class="col-md-8 col-sm-12">
       <div class= "show">
         <div class="show-links">
-          <%= link_to 'Edit', edit_spartan_path, method: :get %> |
-          <%= link_to 'Destroy', @spartan, method: :delete, data: {confirm: 'Are you sure?' } %>
+          <%= link_to 'Edit', edit_spartan_path, method: :get %> 
+          <% if !@spartan.admin %>
+          | <%= link_to 'Destroy', @spartan, method: :delete, data: {confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
       <!-- Link returns to the spartans index -->
         <div class= "back">
