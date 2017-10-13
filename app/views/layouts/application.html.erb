@@ -11,8 +11,13 @@
 
   <body>
     <%= render '/projects/nav'%>
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+    	<p class="alert alert-success"><%= notice %></p>
+      <% elsif alert %>
+      <p class="alert alert-warning"><%= alert %></p>
+    <% else %>
+      <p class="alert"><%= notice %></p>
+    <% end %>
     
     <%= yield %>
   </body>

@@ -4,7 +4,7 @@
   <div class="row">
     <!-- left column is main content -->
     <div class="col-md-8 col-sm-12">
-      <div class="show">
+      <div class="show_div">
         <h2>
           <a href="<%= @project.url %>"><%= @project.name %></a>
         </h2>
@@ -25,7 +25,8 @@
           </p>
           
         </div>
-        <p><a href="<%= @project.url %>"><button type="button" class="btn btn-secondary">Visit Project</button></a></p>
+        
+         <p><%= link_to 'Visit Project', @project.url, class: "btn btn-secondary" %></p>
       </div>
     </div>
 
@@ -43,12 +44,16 @@
 
         <div class= "side_item">
           <h3>Technologies</h3>
-          <ul>
-            <% techs = @project.technologies.split %>
-            <% techs.each do |tech| %>
-              <li><%= tech %></li>
-            <% end %>
-          </ul>
+          <% if @project.technologies %>
+            <ul>
+              <% techs = @project.technologies.split %>
+              <% techs.each do |tech| %>
+                <li><%= tech %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>Please add technologies used </p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -58,21 +63,28 @@
   <div class="row">
     <!-- there is only one column in this row but it in line with the left hand column in the row above -->
     <div class="col-md-8 col-sm-12">
-      <div class= "show">
-        <!-- If current user signed in AND an admin, they can edit and destroy the project-->
+      <div class= "show_div">
+        
+        <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
         <% if spartan_signed_in? %>
           <% if current_spartan.admin %>
-            <div class= "show_links">
-            	<%= link_to 'Edit', edit_project_path(@project) %> |
-              <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> 
-            </div>
+             <div class="margin-left">
+               <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+               | <td><%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </div>
+          <% else %>
+            <%  @project.spartans.each { |i|   %>
+              <%if current_spartan.id === i.id%>
+                <div class="margin-left">
+                  <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+                </div>
+              <% end %>
+            <%}%>
           <% end %>
-        <% end %>
-  
-
-          <!-- Link to return to projects index -->
+        <% end %> 
+        <!-- Link to return to projects index -->
         <div class= "back">
-          <p><button type="button" class="btn btn-secondary"><%= link_to 'Back', projects_path %></button></p>
+          <p><%= link_to 'Back', projects_path, class: "btn btn-secondary" %></p>
         </div>
       </div>
     </div>
