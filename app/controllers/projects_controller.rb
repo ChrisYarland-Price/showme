@@ -28,16 +28,19 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+
   end
 
   # GET /projects/new
   def new
+    spartan_check
     @project = Project.new
     @new_form = true
   end
 
   # GET /projects/1/edit
   def edit
+    spartan_check
   end
 
   # POST /projects
@@ -74,10 +77,28 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
+    def spartan_check 
+      if spartan_signed_in? 
+        if current_spartan.admin 
+          
+        elsif @project
+          @project.spartans.each { |i|   
+            if current_spartan.id === i.id
+            else
+              redirect_to '/'
+            end 
+          }
+        end 
+      else
+        redirect_to '/'
+      end  
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:name, :url, :image, :summary, :technologies, :published)
     end
+
     def spartans_project_params
       params.require(:project).permit(:spartan_ids => [])
     end
