@@ -13,7 +13,7 @@
         <!-- Displays a screenshot of the project if there is one in the database, otherwise displays a message -->
         <div class="show_image">
           <% if @project.image %>
-            <%= image_tag @project.image, class: "project_image", alt: "A screenshot of the game" %>
+            <%= image_tag @project.image, class: "project_image", alt: "A screenshot of the project" %>
           <% else %>
             <p>There is no image for this project. Could you please add one.</p>
           <% end %>
