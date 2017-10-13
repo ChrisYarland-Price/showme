@@ -11,7 +11,19 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap
+//= require popper
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
+//= require bootstrap-multiselect
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+	
+	$(document).ready(function() {
+		$('.multiselect').multiselect();
+		var ids = $('.spartansIds');
+		console.log(ids.val());
+	});
+});
+

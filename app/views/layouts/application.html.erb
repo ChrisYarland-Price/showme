@@ -6,12 +6,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   </head>
 
   <body>
     <%= render '/projects/nav'%>
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+    	<p class="alert alert-success"><%= notice %></p>
+      <% elsif alert %>
+      <p class="alert alert-warning"><%= alert %></p>
+    <% else %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     
     <%= yield %>
   </body>
