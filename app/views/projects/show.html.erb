@@ -44,12 +44,16 @@
 
         <div class= "side_item">
           <h3>Technologies</h3>
-          <ul>
-            <% techs = @project.technologies.split %>
-            <% techs.each do |tech| %>
-              <li><%= tech %></li>
-            <% end %>
-          </ul>
+          <% if @project.technologies %>
+            <ul>
+              <% techs = @project.technologies.split %>
+              <% techs.each do |tech| %>
+                <li><%= tech %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>Please add technologies used </p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -63,13 +67,21 @@
         
         <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
         <% if spartan_signed_in? %>
-          <%if current_spartan.admin || @project.spartans.map{|i| current_spartan.id == i.id }%>
-            <div class="margin-left">
-              <td><%= link_to 'Edit', edit_project_path(@project) %></td> | 
-              <td><%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </div>
+          <% if current_spartan.admin %>
+             <div class="margin-left">
+               <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+               | <td><%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </div>
+          <% else %>
+            <%  @project.spartans.each { |i|   %>
+              <%if current_spartan.id === i.id%>
+                <div class="margin-left">
+                  <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+                </div>
+              <% end %>
+            <%}%>
           <% end %>
-        <% end %>  
+        <% end %> 
         <!-- Link to return to projects index -->
         <div class= "back">
           <p><%= link_to 'Back', projects_path, class: "btn btn-secondary" %></p>

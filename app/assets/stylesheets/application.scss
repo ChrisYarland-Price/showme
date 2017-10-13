@@ -191,8 +191,9 @@ body {
 		background-color: inherit !important;
 	}
 
-	.alert-success {
+	.alert {
 		width: 30%;
+		min-height: 45px;
 		margin: 10px auto 10px auto;
 	}
 }

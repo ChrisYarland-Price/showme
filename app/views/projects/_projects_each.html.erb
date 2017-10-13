@@ -17,15 +17,22 @@
             <%= image_tag project.image, class: "project_image" %>
           <% end%>
 
-        <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
-        <div class="card-footer bg-transparent">
-          <a href="<%= project.url %>">Visit project</a>
-          <% if spartan_signed_in? %>
-            <%if current_spartan.admin || project.spartans.map{|i| current_spartan.id == i.id }%>
-               | <td><%= link_to 'Edit', edit_project_path(project) %></td> | 
-              <td><%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
-          <% end %> 
+          <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
+          <div class="card-footer bg-transparent">
+            <a href="<%= project.url %>">Visit project</a>
+            
+            <% if spartan_signed_in? %>
+              <% if current_spartan.admin %>
+                 | <td><%= link_to 'Edit', edit_project_path(project) %></td>
+                 | <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% else %>
+                <%  project.spartans.each { |i|   %>
+                  <%if current_spartan.id === i.id%>
+                    | <td><%= link_to 'Edit', edit_project_path(project) %></td> 
+                  <% end %>
+                <%}%>
+              <% end %>
+            <% end %> 
           </div>
         </div> 
       </div>
