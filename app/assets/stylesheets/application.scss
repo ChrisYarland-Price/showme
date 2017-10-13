@@ -60,7 +60,7 @@ body {
 		margin-top: 5px;
 	}
 
-	.btn {
+	.margin-left, .btn {
 		margin-left: 10px;
 	}
 
@@ -122,7 +122,7 @@ body {
 		height: 200px;
 	}
 
-	.show {
+	.show_div {
 		//margin-left: 5%;
 		margin-top: 10px;
 		background-color: #eef4f6;
@@ -147,12 +147,6 @@ body {
 
 	.show_image {
 		margin: 15px 0 15px 0;
-	}
-
-	.show_links {
-		background-color: #eef4f6;
-		display: inline-block;
-		padding: 5px;
 	}
 
 	.show_content {
