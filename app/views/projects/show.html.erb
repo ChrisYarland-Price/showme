@@ -44,7 +44,7 @@
 
         <div class= "side_item">
           <h3>Technologies</h3>
-          <% if @project.technologies %>
+          <% if @project.technologies  && @project.technologies != ""%>
             <ul>
               <% techs = @project.technologies.split %>
               <% techs.each do |tech| %>
