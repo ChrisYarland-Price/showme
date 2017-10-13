@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    spartan_check
+    published_check
   end
 
   # GET /projects/new
@@ -95,6 +95,14 @@ class ProjectsController < ApplicationController
       else
         redirect_to '/'
       end  
+    end
+
+    def published_check
+      if @project.published === true
+
+      else
+        spartan_check
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
