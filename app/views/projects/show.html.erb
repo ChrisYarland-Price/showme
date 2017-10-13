@@ -44,12 +44,16 @@
 
         <div class= "side_item">
           <h3>Technologies</h3>
-          <ul>
-            <% techs = @project.technologies.split %>
-            <% techs.each do |tech| %>
-              <li><%= tech %></li>
-            <% end %>
-          </ul>
+          <% if @project.technologies %>
+            <ul>
+              <% techs = @project.technologies.split %>
+              <% techs.each do |tech| %>
+                <li><%= tech %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>Please add technologies used </p>
+          <% end %>
         </div>
       </div>
     </div>
