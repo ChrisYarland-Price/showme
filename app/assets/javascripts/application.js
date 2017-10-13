@@ -21,7 +21,10 @@
 $(document).on('turbolinks:load', function(){
 	
 	$(document).ready(function() {
-		$('.multiselect').multiselect();
+		$('.multiselect').multiselect({
+            includeSelectAllOption: true,
+            selectAllValue: 'select-all-value'
+        });
 		var ids = $('.spartansIds');
 		console.log(ids.val());
 	});
