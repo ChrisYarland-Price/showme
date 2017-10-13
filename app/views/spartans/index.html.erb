@@ -19,7 +19,7 @@
             <!-- Admin can destroy non-admins -->
             <td><%= link_to 'Edit', edit_spartan_path(user), method: :get %></td>
             <% if !user.admin %>
-               | <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+               | <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
           </div>
         </div>

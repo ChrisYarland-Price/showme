@@ -4,7 +4,7 @@
   <div class="row">
     <!-- left column is main content -->
     <div class="col-md-8 col-sm-12">
-      <div class= "show">
+      <div class= "show_div">
         <h2><%= @spartan.name %></h2>
 
         <!-- Displays a profile image of the user if there is one in the database, or a message if not -->
@@ -41,11 +41,11 @@
   <div class="row">
     <!-- there is only one column in this row but it in line with the left hand column in the row above -->
     <div class="col-md-8 col-sm-12">
-      <div class= "show">
-        <div class="show-links">
+      <div class= "show_div">
+        <div class="margin-left">
           <%= link_to 'Edit', edit_spartan_path, method: :get %> 
           <% if !@spartan.admin %>
-          | <%= link_to 'Destroy', @spartan, method: :delete, data: {confirm: 'Are you sure?' } %>
+          | <%= link_to 'Delete', @spartan, method: :delete, data: {confirm: 'Are you sure?' } %>
           <% end %>
         </div>
       <!-- Link returns to the spartans index -->

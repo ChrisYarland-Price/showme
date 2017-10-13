@@ -4,7 +4,7 @@
   <div class="row">
     <!-- left column is main content -->
     <div class="col-md-8 col-sm-12">
-      <div class="show">
+      <div class="show_div">
         <h2>
           <a href="<%= @project.url %>"><%= @project.name %></a>
         </h2>
@@ -44,12 +44,16 @@
 
         <div class= "side_item">
           <h3>Technologies</h3>
-          <ul>
-            <% techs = @project.technologies.split %>
-            <% techs.each do |tech| %>
-              <li><%= tech %></li>
-            <% end %>
-          </ul>
+          <% if @project.technologies %>
+            <ul>
+              <% techs = @project.technologies.split %>
+              <% techs.each do |tech| %>
+                <li><%= tech %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>Please add technologies used </p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -59,17 +63,21 @@
   <div class="row">
     <!-- there is only one column in this row but it in line with the left hand column in the row above -->
     <div class="col-md-8 col-sm-12">
-      <div class= "show">
+      <div class= "show_div">
         
         <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
         <% if spartan_signed_in? %>
           <% if current_spartan.admin %>
-             <td><%= link_to 'Edit', edit_project_path(@project) %></td>
-             | <td><%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+             <div class="margin-left">
+               <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+               | <td><%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </div>
           <% else %>
             <%  @project.spartans.each { |i|   %>
               <%if current_spartan.id === i.id%>
-                <td><%= link_to 'Edit', edit_project_path(@project) %></td> 
+                <div class="margin-left">
+                  <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+                </div>
               <% end %>
             <%}%>
           <% end %>
