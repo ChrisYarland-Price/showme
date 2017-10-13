@@ -1,6 +1,5 @@
 <div class="form">
   <%= form_with(model: project, local: true) do |form| %>
-    <p class="hidden spartansIds"><%= project.spartan_ids%></p>
     <div class="row">
       <div class="field form-group col">
         <%= form.label :name %>
@@ -31,6 +30,7 @@
 
       <div class="field form-group col">
         <%= form.label :spartan %>
+        <br/>
         <% spartans_array = Spartan.all.map { |spartan| [spartan.name, spartan.id] } %>
         <%= form.select(:spartan_ids, options_for_select(spartans_array), { include_blank: false},{multiple: true, size: 5, class: "multiselect form-control"})%>
       </div>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit "Edit Project", class: "btn btn-secondary"%>
+      <%= form.submit "Submit Project", class: "btn btn-secondary"%>
     </div>
   <% end %>
 </div>
