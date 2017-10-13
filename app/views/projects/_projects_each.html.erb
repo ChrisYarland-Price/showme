@@ -21,7 +21,7 @@
         <div class="card-footer bg-transparent">
           <a href="<%= project.url %>">Visit project</a>
           <% if spartan_signed_in? %>
-            <%if current_spartan.admin || @project.spartans.map{|i| current_spartan.id == i.id }%>
+            <%if current_spartan.admin || project.spartans.map{|i| current_spartan.id == i.id }%>
                | <td><%= link_to 'Edit', edit_project_path(project) %></td> | 
               <td><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
