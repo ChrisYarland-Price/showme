@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-
+    spartan_check
   end
 
   # GET /projects/new
@@ -81,13 +81,16 @@ class ProjectsController < ApplicationController
       if spartan_signed_in? 
         if current_spartan.admin 
           
+
         elsif @project
-          @project.spartans.each { |i|   
-            if current_spartan.id === i.id
-            else
-              redirect_to '/'
-            end 
-          }
+          if @project.published != true
+            @project.spartans.each { |i|   
+              if current_spartan.id === i.id
+              else
+                redirect_to '/'
+              end 
+            }
+          end
         end 
       else
         redirect_to '/'
