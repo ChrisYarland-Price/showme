@@ -1,6 +1,6 @@
 <!-- If the user is signed in they will be shown a button that links to edit of their accounts. -->
 <% if spartan_signed_in? %>
-  <%= link_to('Edit registration', edit_spartan_registration_path, class: "btn btn-secondary") %>
+	<%= link_to 'Edit profile', edit_spartan_path(current_spartan), method: :get, class: "btn btn-secondary" %>
 <% else %>
 <!-- If the user is not signed in they will be shown a button to the sign up page. -->
 	<%= link_to('Sign Up', new_spartan_registration_path, class: "btn btn-secondary") %>

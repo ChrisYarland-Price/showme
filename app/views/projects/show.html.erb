@@ -1,59 +1,92 @@
 <!-- Show page for an individual project -->
-<div class= "show">
-  <p>
-    <h2>
-      <a href="<%= @project.url %>"><%= @project.name %></a>
-    </h2>
-  </p>
-
-  <!-- Displays a screenshot of the project if there is one in the database, otherwise displays a message -->
-  <div class= "show_image">
-    <% if @project.image %>
-      <%= image_tag @project.image, class: "project_image", alt: "A screenshot of the game" %>
-    <% else %>
-      <p>There is no image for this project. Could you please add one.</p>
-    <% end %>
-  </div>
-
-  <a href="<%= @project.url %>"><button type="button" class="btn btn-secondary">Visit Project</button></a>
-
-  <br/>
+<div class="container">
+  <!-- top row contains main content and sidebar -->
+  <div class="row">
+    <!-- left column is main content -->
+    <div class="col-md-8 col-sm-12">
+      <div class="show_div">
+        <h2>
+          <a href="<%= @project.url %>"><%= @project.name %></a>
+        </h2>
 
 
-  <div class= "show_content">
-    <p>   
-      <%= @project.summary %>
-    </p>
+        <!-- Displays a screenshot of the project if there is one in the database, otherwise displays a message -->
+        <div class="show_image">
+          <% if @project.image %>
+            <%= image_tag @project.image, class: "project_image", alt: "A screenshot of the game" %>
+          <% else %>
+            <p>There is no image for this project. Could you please add one.</p>
+          <% end %>
+        </div>
 
-    <p>
-      <strong>Technologies:</strong>
-      <%= @project.technologies %>
-    </p>
-    
-    <p>
-      <strong>Spartans:</strong>
-      <ul>
-        <% @project.spartans.each do |spartan| %>
-          <li><%= spartan.name %></li>
-        <% end %>
-      </ul>
-    </p>
-  </div>
-  <br/>
-  <!-- If current user signed in AND an admin, they can edit and destroy the project-->
-  <% if spartan_signed_in? %>
-    <% if current_spartan.admin %>
-      <div class= "show_links">
-    		<%= link_to 'Edit', edit_project_path(@project) %> |
-        <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %> 
+        <div class="show_content">
+          <p>   
+            <%= @project.summary %>
+          </p>
+          
+        </div>
+        
+         <p><%= link_to 'Visit Project', @project.url, class: "btn btn-secondary" %></p>
       </div>
-    <% end %>
-  <% end %>
-  
-  <br/>
+    </div>
 
-  <!-- Link to return to projects index -->
-  <div class= "back">
-    <p><%= link_to 'Back', projects_path %></p>
+    <!-- right column is the sidebar -->
+    <div class="col-md-4 col-sm-12">
+      <div class="sidebar">
+        <div class="side_item">
+          <h3>Spartans</h3>
+          <ul>
+            <% @project.spartans.each do |spartan| %>
+              <li><%= spartan.name %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class= "side_item">
+          <h3>Technologies</h3>
+          <% if @project.technologies %>
+            <ul>
+              <% techs = @project.technologies.split %>
+              <% techs.each do |tech| %>
+                <li><%= tech %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>Please add technologies used </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- second row is the links -->
+  <div class="row">
+    <!-- there is only one column in this row but it in line with the left hand column in the row above -->
+    <div class="col-md-8 col-sm-12">
+      <div class= "show_div">
+        
+        <!-- If the current user is a staff member they have access to links which edit or destroy projects -->
+        <% if spartan_signed_in? %>
+          <% if current_spartan.admin %>
+             <div class="margin-left">
+               <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+               | <td><%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </div>
+          <% else %>
+            <%  @project.spartans.each { |i|   %>
+              <%if current_spartan.id === i.id%>
+                <div class="margin-left">
+                  <td><%= link_to 'Edit', edit_project_path(@project) %></td>
+                </div>
+              <% end %>
+            <%}%>
+          <% end %>
+        <% end %> 
+        <!-- Link to return to projects index -->
+        <div class= "back">
+          <p><%= link_to 'Back', projects_path, class: "btn btn-secondary" %></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

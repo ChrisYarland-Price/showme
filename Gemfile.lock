@@ -49,6 +49,8 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (~> 1.11.1)
       sass (>= 3.4.19)
+    bootstrap-multiselect-rails (0.9.9)
+      rails (>= 4.0.0)
     builder (3.2.3)
     byebug (9.1.0)
     cancan (1.6.10)
@@ -134,6 +136,11 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -204,6 +211,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap (~> 4.0.0.alpha3)
+  bootstrap-multiselect-rails
   byebug
   cancan
   capybara (~> 2.13)
@@ -215,6 +223,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.4)
+  rails_12factor
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
