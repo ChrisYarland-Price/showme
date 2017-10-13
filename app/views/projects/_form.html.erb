@@ -1,5 +1,6 @@
 <div class="form">
   <%= form_with(model: project, local: true) do |form| %>
+    <p class="hidden spartansIds"><%= project.spartan_ids%></p>
     <div class="row">
       <div class="field form-group col">
         <%= form.label :name %>

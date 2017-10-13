@@ -22,6 +22,8 @@ $(document).on('turbolinks:load', function(){
 	
 	$(document).ready(function() {
 		$('.multiselect').multiselect();
+		var ids = $('.spartansIds');
+		console.log(ids.val());
 	});
 });
 
