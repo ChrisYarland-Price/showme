@@ -55,11 +55,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-  #   spartans_project_params[:spartan_id].drop(1).each{ |s_id|
-  #     spartan = Spartan.find(s_id)
-  #     @project.update(project_params)
-  #     @project.spartans = s_id
-  # }
+    @project.update(project_params)
     spartans_project_params[:spartan_ids].slice!(0)
     @project.spartan_ids = spartans_project_params[:spartan_ids]
     redirect_to @project
